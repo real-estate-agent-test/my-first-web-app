@@ -100,7 +100,7 @@
         }
 
         @media (max-width: 768px) {
-            .nav-links { display: none; /* スマホでは一旦非表示（ハンバーガーメニュー等を入れる想定） */ }
+            .nav-links { display: none; }
             .header-inner { padding: 0 20px; }
         }
 
@@ -109,9 +109,7 @@
         ========================================= */
         .hero {
             height: 70vh;
-            background-color: #E2E8F0; /* 画像が入るまでのダミー色 */
-            /* 実際の画像を入れる場合は下のコメントアウトを外してURLを変更 */
-            /* background: url('hero-image.jpg') center/cover no-repeat; */
+            background-color: #E2E8F0;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -120,7 +118,7 @@
 
         .hero-text {
             text-align: center;
-            color: var(--color-primary); /* 画像が暗い場合は #fff に変更 */
+            color: var(--color-primary);
             background: rgba(255,255,255,0.8);
             padding: 40px 60px;
         }
@@ -205,7 +203,7 @@
 
         .biz-img {
             height: 200px;
-            background-color: #E2E8F0; /* 画像のダミー */
+            background-color: #E2E8F0;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -233,6 +231,11 @@
         /* =========================================
            企業情報（Corporate / Sustainability）
         ========================================= */
+        /* ★ここでフッターとの間にゆとりを持たせています */
+        #corporate {
+            margin-bottom: 120px; 
+        }
+
         .corp-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -264,10 +267,9 @@
 
         @media (max-width: 768px) {
             .corp-grid { grid-template-columns: 1fr; }
+            #corporate { margin-bottom: 80px; } /* スマホの時は少し狭めます */
         }
-　　　　　#corporate {
-    　　　　　margin-bottom: 100px; /* フッターとの間の余白です。お好みで数字を調整してください */
-}
+
         /* =========================================
            フッター
         ========================================= */
