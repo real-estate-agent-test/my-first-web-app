@@ -1,12 +1,281 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My GitHub Pages Site</title>
+    <title>あなた専属の不動産パートナー | Personal Agent</title>
+    <style>
+        /* =========================================
+           要件1 & 4: プレーンでおしゃれ、落ち着いた配色
+           白と淡いグレーを基調とし、文字色はスレート（墨黒）を採用
+        ========================================= */
+        :root {
+            --bg-color: #FAFAF9;      /* ほんのり温かみのあるオフホワイト */
+            --white: #FFFFFF;
+            --text-main: #333333;     /* 墨黒（コントラストを少し抑えて上品に） */
+            --text-light: #666666;
+            --accent-color: #8A9A86;  /* セージグリーン（安心感と洗練さ） */
+            --border-color: #E6E4E0;  /* 繊細なボーダーライン */
+        }
+
+        body {
+            /* スッキリとしたモダンなフォント指定 */
+            font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.9;
+            letter-spacing: 0.06em;
+            margin: 0;
+            padding: 0;
+            font-weight: 300;
+        }
+
+        .container {
+            max-width: 800px; /* プレーンなデザインは幅を少し狭めると美しくなります */
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* =========================================
+           ヒーローセクション（余白を贅沢に使ったファーストビュー）
+        ========================================= */
+        .hero {
+            padding: 140px 24px 100px;
+            text-align: center;
+            background-color: var(--white);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .hero h1 {
+            font-size: 2rem;
+            line-height: 1.6;
+            margin-bottom: 32px;
+            font-weight: 400;
+            color: var(--text-main);
+        }
+
+        .hero p {
+            font-size: 1.05rem;
+            color: var(--text-light);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* 見出し */
+        .section-title {
+            text-align: center;
+            font-size: 1.4rem;
+            font-weight: 400;
+            margin: 100px 0 60px;
+            letter-spacing: 0.1em;
+        }
+
+        /* =========================================
+           要件3: メリット・デメリット（シンプルでプレーンなカード）
+        ========================================= */
+        .pros-cons-wrapper {
+            display: flex;
+            flex-direction: column;
+            gap: 60px;
+        }
+
+        .card {
+            display: flex;
+            gap: 40px;
+            align-items: center;
+        }
+
+        /* 画像とテキストを左右交互に配置 */
+        .card:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+
+        .card-content {
+            flex: 1;
+        }
+
+        .tag {
+            display: inline-block;
+            font-size: 0.8rem;
+            letter-spacing: 0.1em;
+            padding: 4px 12px;
+            border: 1px solid var(--text-light);
+            border-radius: 20px;
+            margin-bottom: 16px;
+        }
+
+        .card h3 {
+            font-size: 1.3rem;
+            font-weight: 500;
+            margin: 0 0 16px 0;
+            line-height: 1.5;
+        }
+
+        .card p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            margin: 0;
+        }
+
+        /* イラスト挿入枠（プレーンな線画が似合うデザイン） */
+        .illustration-box {
+            width: 320px;
+            height: 240px;
+            background-color: var(--white);
+            border: 1px solid var(--border-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #BDBDBD;
+            font-size: 0.9rem;
+            flex-shrink: 0;
+        }
+
+        @media (max-width: 768px) {
+            .card, .card:nth-child(even) {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 24px;
+            }
+            .illustration-box {
+                width: 100%;
+                height: 220px;
+            }
+        }
+
+        /* =========================================
+           プロフィール（装飾を削ぎ落としたスタイル）
+        ========================================= */
+        .profile {
+            display: flex;
+            gap: 40px;
+            padding: 60px;
+            background-color: var(--white);
+            border: 1px solid var(--border-color);
+            margin-bottom: 140px;
+        }
+
+        .profile-img {
+            width: 140px;
+            height: 140px;
+            background-color: var(--bg-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #BDBDBD;
+            font-size: 0.8rem;
+            flex-shrink: 0;
+        }
+
+        .profile-text h3 {
+            margin: 0 0 8px 0;
+            font-size: 1.4rem;
+            font-weight: 400;
+        }
+
+        .profile-text .role {
+            font-size: 0.85rem;
+            color: var(--accent-color);
+            letter-spacing: 0.05em;
+            display: block;
+            margin-bottom: 24px;
+        }
+
+        @media (max-width: 768px) {
+            .profile {
+                flex-direction: column;
+                padding: 40px 24px;
+                text-align: center;
+                align-items: center;
+            }
+        }
+
+        /* =========================================
+           追従型CTA（おしゃれなボタン）
+        ========================================= */
+        .sticky-cta {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(250, 250, 249, 0.9);
+            backdrop-filter: blur(8px);
+            padding: 24px 0;
+            text-align: center;
+            border-top: 1px solid var(--border-color);
+            z-index: 100;
+        }
+
+        .btn {
+            background-color: var(--text-main);
+            color: var(--white);
+            text-decoration: none;
+            padding: 16px 64px;
+            border-radius: 4px; /* 丸すぎない角丸でおしゃれに */
+            font-size: 1rem;
+            transition: background-color 0.3s;
+        }
+
+        .btn:hover {
+            background-color: var(--accent-color);
+        }
+    </style>
 </head>
 <body>
-    <h1>Welcome to My GitHub Pages Site</h1>
-    <p>This is my first GitHub Pages deployment!</p>
+
+    <header class="hero">
+        <h1>会社から買うのではなく、<br>パートナーと買うという選択。</h1>
+        <p>「会社の売上」を優先する営業マンではなく、「あなたの人生」を優先する専門家を。特定の企業に属さないパーソナル・エージェントが、透明で誠実な住まい探しをお約束します。</p>
+    </header>
+
+    <div class="container">
+        
+        <h2 class="section-title">WHY PERSONAL AGENT?</h2>
+
+        <div class="pros-cons-wrapper">
+            <div class="card">
+                <div class="illustration-box">
+                    [線画イラスト挿入: 相談に乗る様子など]
+                </div>
+                <div class="card-content">
+                    <span class="tag">MERIT</span>
+                    <h3>「買わない方がいい」と<br>正直にお伝えできる理由</h3>
+                    <p>私たちには、企業特有の「今月の販売ノルマ」がありません。そのため、自社の利益幅に関わらず、すべての市場データから中立な立場で物件を評価できます。見えない瑕疵や将来の資産リスクがあれば、購入を見送る勇気ある提案をいたします。</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="illustration-box">
+                    [線画イラスト挿入: PCとコーヒーなど]
+                </div>
+                <div class="card-content">
+                    <span class="tag">DEMERIT</span>
+                    <h3>立派な店舗を持たないことが、<br>私たちの最大の強みです</h3>
+                    <p>駅前の豪華な路面店を持たないため、少し不安に感じられるかもしれません。しかし、高額な店舗維持費や広告費をカットすることで、お客様一人ひとりに割ける「時間」と「調査の質」を圧倒的に高めています。面談はオンラインや、お近くの落ち着いたカフェ等で柔軟に対応いたします。</p>
+                </div>
+            </div>
+        </div>
+
+        <h2 class="section-title">PROFILE</h2>
+
+        <div class="profile">
+            <div class="profile-img">
+                [モノクロの顔写真]
+            </div>
+            <div class="profile-text">
+                <span class="role">REAL ESTATE AGENT / 宅地建物取引士</span>
+                <h3>田中 誠</h3>
+                <p>大手不動産会社での10年間の実務経験を経て、「業界の論理ではなく、顧客の論理で動ける環境」を求め独立。<br>
+                華美な営業トークではなく、緻密なデータ分析と徹底した現地調査に基づいたロジカルな提案を得意としています。「家づくりは人生の土台づくり」という信念のもと、購入後も気軽に相談できる一生涯のパートナーを目指しています。</p>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="sticky-cta">
+        <a href="#" class="btn">無料のオンライン相談を予約する</a>
+    </div>
+
 </body>
 </html>
