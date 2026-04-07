@@ -3,444 +3,422 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>〇〇不動産株式会社 | 公式コーポレートサイト</title>
+    <title>NIU Real Estate | NIU Group</title>
     <style>
         /* =========================================
-           ベース設定（大手の品格を出す明朝体と配色）
+           1. ベース設定（JAFCO風ソリッドデザイン）
         ========================================= */
         :root {
-            --color-primary: #1A202C; /* 重厚感のあるダークネイビー */
-            --color-accent: #A89B7D;  /* 信頼と高級感のシャンパンゴールド */
-            --color-bg-gray: #F7F7F7; /* セクション区切り用の薄いグレー */
-            --color-text: #333333;
-            --color-border: #E2E8F0;
+            --color-black: #111111;
+            --color-white: #FFFFFF;
+            --color-gray-light: #F8F9FA;
+            --color-gray-border: #E5E5E5;
+            --color-accent: #0056B3; 
+            --font-main: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif;
         }
 
         body {
-            font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif;
-            color: var(--color-text);
+            background-color: var(--color-white);
+            color: var(--color-black);
+            font-family: var(--font-main);
             margin: 0;
             padding: 0;
             line-height: 1.6;
+            letter-spacing: 0.05em;
         }
 
-        h1, h2, h3, .serif {
-            font-family: "Yu Mincho", "YuMincho", "Hiragino Mincho ProN", serif;
-            font-weight: normal;
-        }
-
-        a {
-            text-decoration: none;
-            color: inherit;
-            transition: opacity 0.3s;
-        }
-
-        a:hover {
-            opacity: 0.7;
-        }
-
-        .container {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        section {
-            padding: 80px 0;
-        }
-
-        /* セクション見出しの共通スタイル */
-        .sec-title {
-            text-align: center;
-            font-size: 2rem;
-            margin-bottom: 50px;
-            letter-spacing: 0.1em;
-            color: var(--color-primary);
-        }
-        .sec-title span {
-            display: block;
-            font-family: sans-serif;
-            font-size: 0.9rem;
-            color: var(--color-accent);
-            margin-bottom: 10px;
-            letter-spacing: 0.15em;
-        }
+        a { text-decoration: none; color: inherit; transition: opacity 0.3s; }
+        a:hover { opacity: 0.6; }
 
         /* =========================================
-           ヘッダー（ナビゲーション）
+           ヘッダー
         ========================================= */
         header {
-            background-color: #fff;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-
-        .header-inner {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            height: 80px;
-            padding: 0 40px;
+            padding: 25px 50px;
+            border-bottom: 1px solid var(--color-gray-border);
+            position: sticky;
+            top: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(5px);
+            z-index: 1000;
         }
 
         .logo {
             font-size: 1.5rem;
-            font-weight: bold;
-            color: var(--color-primary);
+            font-weight: 900;
             letter-spacing: 0.1em;
-        }
-
-        .nav-links {
             display: flex;
-            gap: 30px;
-            font-size: 0.95rem;
-            font-weight: bold;
+            flex-direction: column;
+            line-height: 1.2;
         }
 
-        @media (max-width: 768px) {
-            .nav-links { display: none; }
-            .header-inner { padding: 0 20px; }
-        }
-
-        /* =========================================
-           ヒーローエリア（メインビジュアル）
-        ========================================= */
-        .hero {
-            height: 70vh;
-            background-color: #E2E8F0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-        }
-
-        .hero-text {
-            text-align: center;
-            color: var(--color-primary);
-            background: rgba(255,255,255,0.8);
-            padding: 40px 60px;
-        }
-
-        .hero-text h1 {
-            font-size: 2.5rem;
-            margin: 0 0 15px 0;
+        .logo span {
+            font-size: 0.6rem;
+            color: #666;
             letter-spacing: 0.15em;
         }
 
-        .hero-text p {
-            font-size: 1.1rem;
-            margin: 0;
+        .nav-menu {
+            display: flex;
+            gap: 40px;
+            font-size: 0.85rem;
+            font-weight: 700;
             letter-spacing: 0.1em;
         }
 
         /* =========================================
-           ニュース（News / Topics）
+           メインビジュアル
         ========================================= */
-        .news-list {
-            border-top: 1px solid var(--color-border);
-        }
-
-        .news-item {
+        .hero {
+            height: 85vh;
             display: flex;
-            gap: 20px;
-            padding: 20px 10px;
-            border-bottom: 1px solid var(--color-border);
-            align-items: center;
+            flex-direction: column;
+            justify-content: center;
+            padding: 0 50px;
+            position: relative;
+            overflow: hidden;
+            background-image: url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
         }
 
-        .news-date {
-            font-size: 0.9rem;
-            color: #666;
-            width: 100px;
-            flex-shrink: 0;
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.4); 
+            z-index: 1;
         }
 
-        .news-category {
-            font-size: 0.8rem;
-            background-color: var(--color-primary);
-            color: #fff;
-            padding: 4px 12px;
-            border-radius: 2px;
-            width: 80px;
-            text-align: center;
-            flex-shrink: 0;
+        .hero-title {
+            font-size: clamp(3rem, 7vw, 6rem);
+            font-weight: 900;
+            line-height: 1;
+            margin: 0 0 30px 0;
+            letter-spacing: 0.05em;
+            color: var(--color-white); 
+            z-index: 2; 
+            position: relative;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
         }
 
-        .news-title {
-            flex: 1;
-            font-size: 1rem;
-        }
-
-        @media (max-width: 768px) {
-            .news-item {
-                flex-wrap: wrap;
-                gap: 10px;
-            }
-            .news-title { width: 100%; }
+        .hero-subtitle {
+            font-size: 1.1rem;
+            font-weight: 500;
+            line-height: 1.8;
+            color: var(--color-white); 
+            z-index: 2; 
+            position: relative;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
         }
 
         /* =========================================
-           事業内容（Business - グリッドレイアウト）
+           NEWSセクション
         ========================================= */
-        .business-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
+        .news-section {
+            padding: 100px 50px;
+            border-bottom: 1px solid var(--color-gray-border);
         }
 
-        .biz-card {
-            background-color: #fff;
-            border: 1px solid var(--color-border);
-            transition: box-shadow 0.3s;
+        .sec-head {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 40px;
+        }
+
+        .sec-title {
+            font-size: 2.5rem;
+            font-weight: 900;
+            margin: 0;
+            letter-spacing: 0.05em;
+        }
+
+        .news-list { list-style: none; padding: 0; margin: 0; }
+
+        .news-item {
+            border-top: 1px solid var(--color-gray-border);
+            padding: 25px 0;
+            display: flex;
+            gap: 50px;
+            transition: background 0.3s;
+        }
+        .news-item:hover { background-color: var(--color-gray-light); }
+        .news-date { font-weight: 700; font-size: 0.9rem; width: 100px; color: #555; }
+        .news-text { font-weight: 500; }
+
+        /* =========================================
+           BUSINESSグリッド（白背景・文字の見えやすさを最優先）
+        ========================================= */
+        .business-section {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            border-bottom: 1px solid var(--color-gray-border);
+            background-color: var(--color-white);
+        }
+
+        .biz-label-text, .biz-title, .biz-desc {
+            z-index: 2;
+            position: relative;
+            color: var(--color-black); 
+            text-shadow: none; 
+        }
+
+        .biz-label-text {
+            color: var(--color-accent) !important; 
+            font-size: 0.8rem;
+            font-weight: 900;
+            letter-spacing: 0.1em;
+            margin-bottom: 10px;
             display: block;
         }
 
-        .biz-card:hover {
-            box-shadow: 0 10px 25px rgba(0,0,0,0.08);
-        }
-
-        .biz-img {
-            height: 200px;
-            background-color: #E2E8F0;
+        .biz-item {
+            border-right: 1px solid var(--color-gray-border); 
+            background: transparent; 
+            padding: 40px 40px; 
+            position: relative;
+            height: 380px; 
             display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #A0AEC0;
+            flex-direction: column;
+            overflow: hidden;
+            transition: background 0.4s;
         }
 
-        .biz-text {
-            padding: 25px;
+        .biz-item:hover {
+            background: var(--color-gray-light); 
         }
 
-        .biz-text h3 {
-            font-size: 1.3rem;
-            margin: 0 0 10px 0;
-            color: var(--color-primary);
-            border-bottom: 1px solid var(--color-accent);
-            padding-bottom: 10px;
+        .biz-item:last-child { border-right: none; }
+
+        .biz-title {
+            font-size: 1.8rem;
+            font-weight: 900;
+            margin: 0 0 20px 0;
         }
 
-        .biz-text p {
+        .biz-desc {
             font-size: 0.95rem;
-            color: #555;
-            margin: 0;
+            margin-bottom: 40px;
+        }
+
+        .biz-action {
+            margin-top: auto; 
+            z-index: 2;
+            position: relative;
+        }
+
+        .biz-btn {
+            display: inline-block;
+            color: #000; 
+            font-size: 0.85rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-decoration: none;
+            border: 1px solid var(--color-gray-border);
+            padding: 12px 24px;
+            transition: all 0.3s ease;
+        }
+
+        .biz-btn:hover {
+            background-color: var(--color-black); 
+            color: var(--color-white); 
+            opacity: 1;
         }
 
         /* =========================================
-           企業情報（Corporate / Sustainability）
+           ABOUT（NIU Groupの紹介へ最適化）
         ========================================= */
-        /* ★ここでフッターとの間にゆとりを持たせています */
-        #corporate {
-            margin-bottom: 120px; 
-        }
-
-        .corp-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 30px;
-        }
-
-        .corp-banner {
-            height: 250px;
-            background-color: var(--color-primary);
-            color: #fff;
+        .about-section {
+            padding: 120px 50px;
             display: flex;
-            flex-direction: column;
+            gap: 80px;
             align-items: center;
-            justify-content: center;
-            text-align: center;
-            padding: 20px;
-            transition: opacity 0.3s;
+            border-bottom: 1px solid var(--color-gray-border);
         }
 
-        .corp-banner.light {
-            background-color: var(--color-accent);
+        .about-text { flex: 1; }
+        .about-text h2 {
+            font-size: 2.2rem;
+            font-weight: 900;
+            margin: 0 0 30px 0;
+            line-height: 1.4;
+        }
+        .about-text p { font-size: 1.05rem; margin-bottom: 40px; }
+
+        .about-img {
+            flex: 1;
+            height: 400px;
+            background-image: url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=2071&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
         }
 
-        .corp-banner h3 {
-            font-size: 1.8rem;
-            margin: 0 0 10px 0;
+        .btn {
+            display: inline-block;
+            padding: 15px 40px;
+            background: var(--color-black);
+            color: var(--color-white);
+            font-weight: 700;
             letter-spacing: 0.1em;
+            border-radius: 2px;
         }
 
-        @media (max-width: 768px) {
-            .corp-grid { grid-template-columns: 1fr; }
-            #corporate { margin-bottom: 80px; } /* スマホの時は少し狭めます */
+        @media (max-width: 1024px) {
+            .business-section { grid-template-columns: 1fr; }
+            .biz-item { border-right: none; border-bottom: 1px solid var(--color-gray-border); height: auto; }
+            .about-section { flex-direction: column; }
         }
 
         /* =========================================
            フッター
         ========================================= */
         footer {
-            background-color: var(--color-primary);
-            color: #fff;
-            padding: 60px 20px 20px;
+            padding: 80px 50px 40px;
+            background: var(--color-black);
+            color: var(--color-white);
         }
 
-        .footer-inner {
-            max-width: 1100px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 50px;
+            margin-bottom: 80px;
             border-bottom: 1px solid rgba(255,255,255,0.2);
-            padding-bottom: 40px;
-            margin-bottom: 20px;
+            padding-bottom: 60px;
         }
 
-        .footer-logo {
-            font-size: 1.5rem;
-            font-family: var(--font-serif);
-            margin-bottom: 15px;
-        }
+        .footer-logo { font-size: 1.8rem; font-weight: 900; letter-spacing: 0.1em; }
+        .footer-logo span { display: block; font-size: 0.8rem; color: #888; font-weight: normal; margin-top: 10px; }
 
-        .footer-links {
-            display: flex;
-            gap: 40px;
-        }
+        .footer-link-group h4 { font-size: 0.8rem; color: #888; margin-bottom: 20px; letter-spacing: 0.1em; }
+        .footer-link-group ul { list-style: none; padding: 0; margin: 0; }
+        .footer-link-group li { margin-bottom: 12px; font-size: 0.9rem; }
+        .footer-link-group a { opacity: 0.8; }
+        .footer-link-group a:hover { opacity: 1; color: var(--color-accent); }
 
-        .footer-links ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
+        .copyright { font-size: 0.75rem; color: #666; display: flex; justify-content: space-between; }
 
-        .footer-links li {
-            margin-bottom: 10px;
-            font-size: 0.9rem;
-        }
-
-        .copyright {
-            text-align: center;
-            font-size: 0.8rem;
-            color: rgba(255,255,255,0.6);
-        }
-
-        @media (max-width: 768px) {
-            .footer-inner {
-                flex-direction: column;
-                gap: 40px;
-            }
-            .footer-links {
-                flex-direction: column;
-                gap: 20px;
-            }
-        }
     </style>
 </head>
 <body>
 
     <header>
-        <div class="header-inner">
-            <div class="logo serif">〇〇不動産株式会社</div>
-            <nav class="nav-links">
-                <a href="#news">ニュース</a>
-                <a href="#business">事業内容</a>
-                <a href="#corporate">企業情報</a>
-                <a href="#recruit">採用情報</a>
-            </nav>
+        <div class="logo">
+            NIU Real Estate
+            <span>NIU Group 不動産事業部</span>
         </div>
+        <nav class="nav-menu">
+            <a href="#business">BUSINESS</a>
+            <a href="#about">ABOUT US</a>
+            <a href="#news">NEWS</a>
+            <a href="https://niu-gr.com/" target="_blank">NIU Group Site</a>
+        </nav>
     </header>
 
-    <div class="hero">
-        <div class="hero-text">
-            <h1>街を創り、未来を拓く。</h1>
-            <p>お客様の人生に寄り添う、総合不動産パートナー</p>
-        </div>
-    </div>
+    <main>
+        <section class="hero">
+            <h1 class="hero-title">CONNECTING<br>PEOPLE & PLACE.</h1>
+            <p class="hero-subtitle">
+                一つとして同じものがないからこそ、妥協なくベストを追求する。<br>
+                人と不動産の、最高のマッチングを。
+            </p>
+        </section>
 
-    <section id="news" class="container">
-        <h2 class="sec-title"><span>NEWS</span>お知らせ</h2>
-        <div class="news-list">
-            <a href="#" class="news-item">
-                <div class="news-date">2026.04.01</div>
-                <div class="news-category">企業情報</div>
-                <div class="news-title">新築分譲マンション「〇〇レジデンス」の販売を開始いたしました。</div>
-            </a>
-            <a href="#" class="news-item">
-                <div class="news-date">2026.03.15</div>
-                <div class="news-category" style="background-color: var(--color-accent);">IR情報</div>
-                <div class="news-title">2026年度 経営計画に関するお知らせ</div>
-            </a>
-            <a href="#" class="news-item">
-                <div class="news-date">2026.02.28</div>
-                <div class="news-category">お知らせ</div>
-                <div class="news-title">公式コーポレートサイトをリニューアルいたしました。</div>
-            </a>
-        </div>
-    </section>
-
-    <section id="business" class="bg-gray">
-        <div class="container">
-            <h2 class="sec-title"><span>BUSINESS</span>事業内容</h2>
-            
-            <div class="business-grid">
-                <a href="#" class="biz-card">
-                    <div class="biz-img">[写真：マンション外観など]</div>
-                    <div class="biz-text">
-                        <h3>不動産分譲事業</h3>
-                        <p>都市の景観と調和し、資産価値が持続する高品質な分譲マンション・戸建ての開発を行っています。</p>
-                    </div>
-                </a>
-                <a href="#" class="biz-card">
-                    <div class="biz-img">[写真：オフィスビルなど]</div>
-                    <div class="biz-text">
-                        <h3>不動産賃貸事業</h3>
-                        <p>都心部を中心としたオフィスビルや商業施設の運営を通じ、快適なビジネス環境を提供します。</p>
-                    </div>
-                </a>
-                <a href="#" class="biz-card">
-                    <div class="biz-img">[写真：相談する様子など]</div>
-                    <div class="biz-text">
-                        <h3>不動産仲介事業</h3>
-                        <p>ご売却からご購入まで、専属のエージェントがお客様一人ひとりのニーズに合わせた最適なご提案をいたします。</p>
-                    </div>
-                </a>
+        <section id="news" class="news-section">
+            <div class="sec-head">
+                <h2 class="sec-title">NEWS</h2>
+                <a href="#" style="font-weight: 700; font-size: 0.85rem; border-bottom: 2px solid #000; padding-bottom: 2px;">VIEW ALL</a>
             </div>
-        </div>
-    </section>
+            <ul class="news-list">
+                <li class="news-item">
+                    <span class="news-date">2026.04.07</span>
+                    <span class="news-text">NIU Group 不動産事業部「NIU Real Estate」の公式サイトをオープンいたしました。</span>
+                </li>
+                <li class="news-item">
+                    <span class="news-date">2026.03.15</span>
+                    <span class="news-text">法人向けオフィス移転コンサルティングサービスの提供を開始しました。</span>
+                </li>
+            </ul>
+        </section>
 
-    <section id="corporate" class="container">
-        <h2 class="sec-title"><span>CORPORATE</span>企業情報</h2>
-        <div class="corp-grid">
-            <a href="#" class="corp-banner">
-                <h3>会社案内</h3>
-                <p>Company Profile</p>
-            </a>
-            <a href="#" class="corp-banner light">
-                <h3>サステナビリティ</h3>
-                <p>Sustainability</p>
-            </a>
-        </div>
-    </section>
+        <section id="business" class="business-section">
+            <div class="biz-item">
+                <span class="biz-label-text">01 / BROKERAGE</span>
+                <h3 class="biz-title">不動産売買・賃貸仲介</h3>
+                <p class="biz-desc">個人のお客様の理想の住まい探しから、経営戦略に合わせた法人様のオフィス移転まで、最適な物件を中立な立場でご提案します。</p>
+                <div class="biz-action">
+                    <a href="#" class="biz-btn">VIEW DETAILS &rarr;</a>
+                </div>
+            </div>
+            <div class="biz-item">
+                <span class="biz-label-text">02 / CONSULTING</span>
+                <h3 class="biz-title">資産運用コンサルティング</h3>
+                <p class="biz-desc">収益物件の購入・売却サポート。市場データに基づいた緻密な分析で、お客様の大切な資産の価値の最大化を図ります。</p>
+                <div class="biz-action">
+                    <a href="#" class="biz-btn">VIEW DETAILS &rarr;</a>
+                </div>
+            </div>
+            <div class="biz-item">
+                <span class="biz-label-text">03 / MANAGEMENT</span>
+                <h3 class="biz-title">プロパティマネジメント</h3>
+                <p class="biz-desc">オーナー様に代わり、賃貸物件の入居者募集から建物の維持管理までをワンストップでサポートし、安定した賃貸経営を実現します。</p>
+                <div class="biz-action">
+                    <a href="#" class="biz-btn">VIEW DETAILS &rarr;</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="about-section">
+            <div class="about-text">
+                <span style="color: var(--color-accent); font-weight: 900; letter-spacing: 0.1em; display: block; margin-bottom: 10px;">ABOUT NIU GROUP</span>
+                <h2>「人」と「場所」の、<br>最高のマッチングを。</h2>
+                <p>
+                    私たちが提供するのは、単なる物件の紹介ではありません。<br>
+                    不動産売買、賃貸仲介、オフィス移転など、すべてのプロセスにおいて、お客様にベストな不動産を探します。<br><br>
+
+                    私たちは、個人の住まい探しから法人のオフィス移転、さらには資産運用まで、あらゆる不動産ニーズに応えるプロフェッショナルです。多角的な視点と独自のネットワークを駆使して、あらゆるニーズに最高水準のソリューションを提供します。
+                    
+                </p>
+                <a href="https://niu-gr.com/about-us/" target="_blank" class="btn">NIU Groupについて</a>
+            </div>
+            <div class="about-img">
+                
+            </div>
+        </section>
+    </main>
 
     <footer>
-        <div class="footer-inner">
+        <div class="footer-grid">
             <div class="footer-info">
-                <div class="footer-logo">〇〇不動産株式会社</div>
-                <p>〒000-0000<br>東京都〇〇区〇〇 1-2-3<br>TEL: 03-0000-0000</p>
+                <div class="footer-logo">NIU Real Estate<span>NIU Group 不動産事業部</span></div>
             </div>
-            <div class="footer-links">
+            <div class="footer-link-group">
+                <h4>SERVICES</h4>
                 <ul>
-                    <li><a href="#">トップページ</a></li>
-                    <li><a href="#">ニュース一覧</a></li>
-                    <li><a href="#">事業内容</a></li>
+                    <li><a href="#">不動産売買・賃貸仲介</a></li>
+                    <li><a href="#">資産運用コンサルティング</a></li>
+                    <li><a href="#">プロパティマネジメント</a></li>
                 </ul>
+            </div>
+            <div class="footer-link-group">
+                <h4>CORPORATE</h4>
                 <ul>
-                    <li><a href="#">企業情報</a></li>
-                    <li><a href="#">サステナビリティ</a></li>
-                    <li><a href="#">採用情報</a></li>
-                </ul>
-                <ul>
-                    <li><a href="#">プライバシーポリシー</a></li>
-                    <li><a href="#">サイトマップ</a></li>
+                    <li><a href="https://niu-gr.com/" target="_blank">NIU Group 総合サイト</a></li>
+                    <li><a href="https://niu-gr.com/about-us/" target="_blank">会社概要</a></li>
                     <li><a href="#">お問い合わせ</a></li>
                 </ul>
             </div>
         </div>
         <div class="copyright">
-            &copy; 2026 〇〇 Real Estate Co., Ltd. All Rights Reserved.
+            <span>© 2026 NIU Group. ALL RIGHTS RESERVED.</span>
+            <span><a href="#">プライバシーポリシー</a></span>
         </div>
     </footer>
 
