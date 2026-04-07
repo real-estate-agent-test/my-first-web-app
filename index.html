@@ -6,19 +6,20 @@
     <title>NIU Real Estate | NIU Group</title>
     <style>
         /* =========================================
-           1. ベース設定
+           1. ベース設定（上質なモダンデザイン）
         ========================================= */
         :root {
-            --color-black: #111111;
+            --color-black: #222222;
             --color-white: #FFFFFF;
-            --color-gray-light: #F8F9FA;
+            --color-gray-bg: #FAFAFA; /* 全体の背景をわずかにオフホワイトに */
             --color-gray-border: #E5E5E5;
-            --color-accent: #0056B3; 
+            --color-accent: #B89C6A; /* 参考画像に合わせた上品なゴールド/ベージュ系 */
             --font-main: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif;
+            --font-serif: "Yu Mincho", "YuMincho", "Hiragino Mincho ProN", serif; /* 高級感を出す明朝体 */
         }
 
         body {
-            background-color: var(--color-white);
+            background-color: var(--color-gray-bg);
             color: var(--color-black);
             font-family: var(--font-main);
             margin: 0;
@@ -28,15 +29,23 @@
         }
 
         a { text-decoration: none; color: inherit; transition: opacity 0.3s; }
+        a:hover { opacity: 0.6; }
+
+        /* コンテンツ幅の固定（PCで広がりすぎないように） */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 25px;
+        }
 
         /* =========================================
-           ヘッダー（レスポンシブ対応）
+           ヘッダー
         ========================================= */
         header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 20px 25px; /* スマホ用に少し狭める */
+            padding: 20px 25px;
             border-bottom: 1px solid var(--color-gray-border);
             position: sticky;
             top: 0;
@@ -46,38 +55,28 @@
         }
 
         .logo {
-            font-size: 1.2rem; /* スマホ用に少し小さく */
+            font-size: 1.2rem;
             font-weight: 900;
             letter-spacing: 0.1em;
             line-height: 1.2;
+            font-family: var(--font-main);
         }
 
         .logo span {
-            font-size: 0.5rem;
+            font-size: 0.55rem;
             color: #666;
             display: block;
+            margin-top: 2px;
         }
 
-        /* デスクトップメニュー */
-        .nav-menu {
-            display: flex;
-            gap: 30px;
-            font-size: 0.8rem;
-            font-weight: 700;
-        }
-
-        /* スマホ用ハンバーガー（デフォルト非表示） */
-        .menu-icon {
-            display: none;
-            font-size: 1.5rem;
-            cursor: pointer;
-        }
+        .nav-menu { display: none; } /* スマホ初期は非表示 */
+        .menu-icon { font-size: 1.5rem; cursor: pointer; }
 
         /* =========================================
-           メインビジュアル（スマホ最適化）
+           メインビジュアル
         ========================================= */
         .hero {
-            height: 70vh; /* スマホでは少し低くして次が見えるように */
+            height: 70vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -91,14 +90,14 @@
         .hero::before {
             content: '';
             position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-            background-color: rgba(0, 0, 0, 0.4); 
+            background-color: rgba(0, 0, 0, 0.5); 
             z-index: 1;
         }
 
         .hero-title {
-            font-size: 2.5rem; /* スマホで読みやすいサイズ */
+            font-size: 2.2rem;
             font-weight: 900;
-            line-height: 1.1;
+            line-height: 1.2;
             margin-bottom: 20px;
             color: var(--color-white); 
             z-index: 2; position: relative;
@@ -115,76 +114,132 @@
            NEWSセクション
         ========================================= */
         .news-section {
-            padding: 60px 25px;
+            padding: 80px 0;
             border-bottom: 1px solid var(--color-gray-border);
         }
 
-        .sec-title {
-            font-size: 1.8rem;
-            font-weight: 900;
-            margin: 0;
-        }
+        .sec-head { margin-bottom: 30px; }
+        .sec-title { font-size: 1.8rem; font-weight: 900; margin: 0; font-family: var(--font-main); }
 
         .news-item {
             border-top: 1px solid var(--color-gray-border);
             padding: 20px 0;
             display: flex;
-            flex-direction: column; /* スマホでは縦並び */
+            flex-direction: column;
             gap: 5px;
         }
         .news-date { font-weight: 700; font-size: 0.8rem; color: var(--color-accent); }
         .news-text { font-size: 0.9rem; font-weight: 500; }
 
         /* =========================================
-           BUSINESSグリッド（スマホでは1カラム）
+           BUSINESSグリッド（★参考画像風のカード型）
         ========================================= */
         .business-section {
-            display: grid;
-            grid-template-columns: 1fr; /* スマホは1列 */
-            background-color: var(--color-white);
+            padding: 100px 0;
+            background-color: var(--color-gray-bg);
         }
 
-        .biz-item {
-            border-bottom: 1px solid var(--color-gray-border); 
-            padding: 40px 25px; 
+        /* セクション見出し（写真のデザインに合わせる） */
+        .section-header-center {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        .section-header-center span {
+            font-size: 0.75rem;
+            color: var(--color-accent);
+            letter-spacing: 0.2em;
+            font-weight: 700;
+            display: block;
+            margin-bottom: 10px;
+        }
+        .section-header-center h2 {
+            font-size: 2rem;
+            font-family: var(--font-serif); /* 明朝体で高級感を */
+            font-weight: normal;
+            margin: 0;
+            letter-spacing: 0.1em;
+        }
+
+        /* グリッドレイアウト（余白を持たせる） */
+        .biz-grid {
+            display: grid;
+            grid-template-columns: 1fr; /* スマホは縦並び1列 */
+            gap: 40px; /* カード同士の間隔 */
+        }
+
+        /* カード単体のデザイン */
+        .biz-card {
+            background-color: var(--color-white);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.03); /* わずかに浮かせる影 */
             display: flex;
             flex-direction: column;
-            min-height: 300px;
+        }
+
+        /* カード上部：画像エリア */
+        .biz-img {
+            height: 220px;
+            background-color: #E8ECEF; /* 参考画像のような淡いブルーグレー */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #999;
+            font-size: 0.8rem;
+            letter-spacing: 0.05em;
+        }
+
+        /* カード下部：テキストエリア */
+        .biz-content {
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
         }
 
         .biz-label-text {
             color: var(--color-accent);
-            font-size: 0.7rem;
+            font-size: 0.65rem;
             font-weight: 900;
+            letter-spacing: 0.1em;
             margin-bottom: 10px;
         }
 
         .biz-title {
-            font-size: 1.5rem;
-            font-weight: 900;
-            margin-bottom: 15px;
+            font-size: 1.3rem;
+            font-family: var(--font-serif); /* 明朝体 */
+            font-weight: normal;
+            margin: 0 0 15px 0;
+            padding-bottom: 15px;
+            border-bottom: 1px solid var(--color-gray-border); /* タイトル下の線 */
         }
 
         .biz-desc {
             font-size: 0.85rem;
+            color: #555;
             margin-bottom: 30px;
+            line-height: 1.8;
         }
 
         .biz-btn {
             align-self: flex-start;
+            margin-top: auto; /* ボタンを一番下に揃える */
             border: 1px solid var(--color-black);
             padding: 10px 20px;
-            font-size: 0.8rem;
+            font-size: 0.75rem;
             font-weight: 700;
+            letter-spacing: 0.05em;
+        }
+        .biz-btn:hover {
+            background-color: var(--color-black);
+            color: var(--color-white);
         }
 
         /* =========================================
            ABOUT US
         ========================================= */
         .about-section {
-            padding: 60px 25px;
+            padding: 80px 0;
             display: flex;
-            flex-direction: column; /* スマホでは縦に */
+            flex-direction: column;
             gap: 40px;
         }
 
@@ -207,20 +262,21 @@
             background-position: center;
         }
 
-        .btn {
-            display: block;
+        .btn-solid {
+            display: inline-block;
             text-align: center;
-            padding: 15px;
+            padding: 15px 40px;
             background: var(--color-black);
             color: var(--color-white);
             font-weight: 700;
+            font-size: 0.85rem;
         }
 
         /* =========================================
            フッター
         ========================================= */
         footer {
-            padding: 40px 25px;
+            padding: 60px 25px;
             background: var(--color-black);
             color: var(--color-white);
         }
@@ -233,37 +289,42 @@
 
         .footer-logo { font-size: 1.5rem; font-weight: 900; }
         .footer-link-group h4 { font-size: 0.7rem; color: #888; margin-bottom: 15px; }
-        .footer-link-group ul { list-style: none; padding: 0; }
+        .footer-link-group ul { list-style: none; padding: 0; margin: 0; }
         .footer-link-group li { margin-bottom: 10px; font-size: 0.8rem; }
 
         .copyright {
-            margin-top: 40px;
+            margin-top: 60px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.2);
             font-size: 0.6rem;
             color: #666;
             text-align: center;
         }
 
         /* =========================================
-           デスクトップ向けの調整 (PCで見るとき用)
+           PC用レイアウト（769px以上）
         ========================================= */
         @media (min-width: 769px) {
             header { padding: 25px 50px; }
-            .hero { padding: 0 50px; height: 85vh; }
-            .hero-title { font-size: 5rem; }
-            .news-section { padding: 100px 50px; }
+            .logo { font-size: 1.5rem; }
+            .nav-menu { display: flex; gap: 40px; font-size: 0.85rem; font-weight: 700; }
+            .menu-icon { display: none; }
+
+            .hero { padding: 0 50px; height: 80vh; }
+            .hero-title { font-size: 4rem; line-height: 1; }
+
             .news-item { flex-direction: row; gap: 50px; }
-            .business-section { grid-template-columns: repeat(3, 1fr); }
-            .biz-item { border-right: 1px solid var(--color-gray-border); border-bottom: none; height: 380px; }
-            .about-section { flex-direction: row; padding: 120px 50px; gap: 80px; }
+
+            /* PC時のグリッド設定（参考画像のように横3列） */
+            .biz-grid { grid-template-columns: repeat(3, 1fr); gap: 30px; }
+            .biz-img { height: 200px; } /* PC時の写真枠の高さ */
+
+            .about-section { flex-direction: row; gap: 80px; align-items: center; }
             .about-img { height: 400px; flex: 1; }
             .about-text { flex: 1; }
-            .footer-grid { flex-direction: row; justify-content: space-between; }
-        }
 
-        /* スマホでメニューを隠す設定 */
-        @media (max-width: 768px) {
-            .nav-menu { display: none; } /* 本来はJSで開閉させますが、一旦シンプルに非表示 */
-            .menu-icon { display: block; }
+            footer { padding: 80px 50px; }
+            .footer-grid { flex-direction: row; justify-content: space-between; }
         }
     </style>
 </head>
@@ -276,68 +337,99 @@
         </div>
         <div class="menu-icon">☰</div>
         <nav class="nav-menu">
-            <a href="#business">BUSINESS</a>
-            <a href="#about">ABOUT US</a>
-            <a href="#news">NEWS</a>
+            <a href="#business">ホーム</a>
+            <a href="#business">会社概要</a>
+            <a href="#about">NEWS</a>
+            <a href="#news">問い合わせ</a>
         </nav>
     </header>
 
     <main>
         <section class="hero">
-            <h1 class="hero-title">CONNECTING<br>PEOPLE & PLACE.</h1>
-            <p class="hero-subtitle">
-                一つとして同じものがないからこそ、妥協なくベストを追求する。<br>
-                人と不動産の、最高のマッチングを。
-            </p>
+            <div class="container">
+                <h1 class="hero-title">CONNECTING<br>PEOPLE & PLACE.</h1>
+                <p class="hero-subtitle">
+                    一つとして同じものがないからこそ、妥協なくベストを追求する。<br>
+                    人と不動産の、最高のマッチングを。
+                </p>
+            </div>
         </section>
 
         <section id="news" class="news-section">
-            <div class="sec-head">
-                <h2 class="sec-title">NEWS</h2>
+            <div class="container">
+                <div class="sec-head">
+                    <h2 class="sec-title">NEWS</h2>
+                </div>
+                <ul class="news-list">
+                    <li class="news-item">
+                        <span class="news-date">2026.04.07</span>
+                        <span class="news-text">NIU Real Estate 公式サイトオープン。</span>
+                    </li>
+                </ul>
             </div>
-            <ul class="news-list">
-                <li class="news-item">
-                    <span class="news-date">2026.04.07</span>
-                    <span class="news-text">NIU Real Estate 公式サイトオープン。</span>
-                </li>
-            </ul>
         </section>
 
         <section id="business" class="business-section">
-            <div class="biz-item">
-                <span class="biz-label-text">01 / BROKERAGE</span>
-                <h3 class="biz-title">不動産売買・賃貸仲介</h3>
-                <p class="biz-desc">個人から法人まで、最適な物件を中立な立場でご提案します。</p>
-                <a href="#" class="biz-btn">VIEW DETAILS &rarr;</a>
-            </div>
-            <div class="biz-item">
-                <span class="biz-label-text">02 / CONSULTING</span>
-                <h3 class="biz-title">資産運用コンサル</h3>
-                <p class="biz-desc">データに基づき、お客様の資産価値の最大化を図ります。</p>
-                <a href="#" class="biz-btn">VIEW DETAILS &rarr;</a>
-            </div>
-            <div class="biz-item">
-                <span class="biz-label-text">03 / MANAGEMENT</span>
-                <h3 class="biz-title">プロパティマネジメント</h3>
-                <p class="biz-desc">入居者募集から建物管理までワンストップでサポート。</p>
-                <a href="#" class="biz-btn">VIEW DETAILS &rarr;</a>
+            <div class="container">
+                <div class="section-header-center">
+                    <span>BUSINESS</span>
+                    <h2>事業内容</h2>
+                </div>
+                
+                <div class="biz-grid">
+                    <div class="biz-card">
+                        <div class="biz-img">[写真：マンション外観など]</div>
+                        <div class="biz-content">
+                            <span class="biz-label-text">01 / BROKERAGE</span>
+                            <h3 class="biz-title">不動産売買・賃貸仲介</h3>
+                            <p class="biz-desc">個人から法人まで、最適な物件を中立な立場でご提案します。</p>
+                            <a href="#" class="biz-btn">VIEW DETAILS &rarr;</a>
+                        </div>
+                    </div>
+
+                    <div class="biz-card">
+                        <div class="biz-img">[写真：オフィスビルなど]</div>
+                        <div class="biz-content">
+                            <span class="biz-label-text">02 / CONSULTING</span>
+                            <h3 class="biz-title">資産運用コンサル</h3>
+                            <p class="biz-desc">データに基づき、お客様の資産価値の最大化を図ります。</p>
+                            <a href="#" class="biz-btn">VIEW DETAILS &rarr;</a>
+                        </div>
+                    </div>
+
+                    <div class="biz-card">
+                        <div class="biz-img">[写真：相談する様子など]</div>
+                        <div class="biz-content">
+                            <span class="biz-label-text">03 / MANAGEMENT</span>
+                            <h3 class="biz-title">プロパティマネジメント</h3>
+                            <p class="biz-desc">入居者募集から建物管理までワンストップでサポート。</p>
+                            <a href="#" class="biz-btn">VIEW DETAILS &rarr;</a>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
 
         <section id="about" class="about-section">
-            <div class="about-text">
-                <h2>「人」と「場所」の、<br>最高のマッチングを。</h2>
-                <p>
-                    不動産売買、賃貸仲介、オフィス移転など、すべてのプロセスにおいて、お客様にベストな不動産を探します。
-                </p>
-                <a href="https://niu-gr.com/about-us/" target="_blank" class="btn">NIU Groupについて</a>
+            <div class="container" style="display: flex; flex-direction: inherit; gap: inherit;">
+                <div class="about-text">
+                    <h2>「人」と「場所」の、<br>最高のマッチングを。</h2>
+                    <p>
+                        私たちが提供するのは、単なる物件の紹介ではありません。<br>
+                        不動産売買、賃貸仲介、オフィス移転など、すべてのプロセスに<br>おいて、お客様にベストな不動産を探します。<br><br>
+                        私達は、個人の住まい探しから法人のオフィス移転、さらには資産運用まで、
+                        あらゆる不動産ニーズに応えるプロフェッショナルです。　<br><br>
+                        多角的な視点と独自のネットワークを駆使して、あらゆるニーズに最高水準のソリューションを提供します。
+                    </p>
+                    <a href="https://niu-gr.com/about-us/" target="_blank" class="btn-solid">詳細を見る</a>
+                </div>
+                <div class="about-img"></div>
             </div>
-            <div class="about-img"></div>
         </section>
     </main>
 
     <footer>
-        <div class="footer-grid">
+        <div class="container footer-grid">
             <div class="footer-logo">NIU Real Estate</div>
             <div class="footer-link-group">
                 <h4>SERVICES</h4>
@@ -348,7 +440,9 @@
                 </ul>
             </div>
         </div>
-        <div class="copyright">© 2026 NIU Group. ALL RIGHTS RESERVED.</div>
+        <div class="container">
+            <div class="copyright">© 2026 NIU Group. ALL RIGHTS RESERVED.</div>
+        </div>
     </footer>
 
 </body>
