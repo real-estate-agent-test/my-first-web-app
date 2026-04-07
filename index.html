@@ -280,4 +280,165 @@
             margin: 0 auto;
             display: flex;
             justify-content: space-between;
-            border-bottom: 1px solid rgba(255,255,255,0.2
+            border-bottom: 1px solid rgba(255,255,255,0.2);
+            padding-bottom: 40px;
+            margin-bottom: 20px;
+        }
+
+        .footer-logo {
+            font-size: 1.5rem;
+            font-family: var(--font-serif);
+            margin-bottom: 15px;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 40px;
+        }
+
+        .footer-links ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+            font-size: 0.9rem;
+        }
+
+        .copyright {
+            text-align: center;
+            font-size: 0.8rem;
+            color: rgba(255,255,255,0.6);
+        }
+
+        @media (max-width: 768px) {
+            .footer-inner {
+                flex-direction: column;
+                gap: 40px;
+            }
+            .footer-links {
+                flex-direction: column;
+                gap: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-inner">
+            <div class="logo serif">〇〇不動産株式会社</div>
+            <nav class="nav-links">
+                <a href="#news">ニュース</a>
+                <a href="#business">事業内容</a>
+                <a href="#corporate">企業情報</a>
+                <a href="#recruit">採用情報</a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="hero">
+        <div class="hero-text">
+            <h1>街を創り、未来を拓く。</h1>
+            <p>お客様の人生に寄り添う、総合不動産パートナー</p>
+        </div>
+    </div>
+
+    <section id="news" class="container">
+        <h2 class="sec-title"><span>NEWS</span>お知らせ</h2>
+        <div class="news-list">
+            <a href="#" class="news-item">
+                <div class="news-date">2026.04.01</div>
+                <div class="news-category">企業情報</div>
+                <div class="news-title">新築分譲マンション「〇〇レジデンス」の販売を開始いたしました。</div>
+            </a>
+            <a href="#" class="news-item">
+                <div class="news-date">2026.03.15</div>
+                <div class="news-category" style="background-color: var(--color-accent);">IR情報</div>
+                <div class="news-title">2026年度 経営計画に関するお知らせ</div>
+            </a>
+            <a href="#" class="news-item">
+                <div class="news-date">2026.02.28</div>
+                <div class="news-category">お知らせ</div>
+                <div class="news-title">公式コーポレートサイトをリニューアルいたしました。</div>
+            </a>
+        </div>
+    </section>
+
+    <section id="business" class="bg-gray">
+        <div class="container">
+            <h2 class="sec-title"><span>BUSINESS</span>事業内容</h2>
+            
+            <div class="business-grid">
+                <a href="#" class="biz-card">
+                    <div class="biz-img">[写真：マンション外観など]</div>
+                    <div class="biz-text">
+                        <h3>不動産分譲事業</h3>
+                        <p>都市の景観と調和し、資産価値が持続する高品質な分譲マンション・戸建ての開発を行っています。</p>
+                    </div>
+                </a>
+                <a href="#" class="biz-card">
+                    <div class="biz-img">[写真：オフィスビルなど]</div>
+                    <div class="biz-text">
+                        <h3>不動産賃貸事業</h3>
+                        <p>都心部を中心としたオフィスビルや商業施設の運営を通じ、快適なビジネス環境を提供します。</p>
+                    </div>
+                </a>
+                <a href="#" class="biz-card">
+                    <div class="biz-img">[写真：相談する様子など]</div>
+                    <div class="biz-text">
+                        <h3>不動産仲介事業</h3>
+                        <p>ご売却からご購入まで、専属のエージェントがお客様一人ひとりのニーズに合わせた最適なご提案をいたします。</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section id="corporate" class="container">
+        <h2 class="sec-title"><span>CORPORATE</span>企業情報</h2>
+        <div class="corp-grid">
+            <a href="#" class="corp-banner">
+                <h3>会社案内</h3>
+                <p>Company Profile</p>
+            </a>
+            <a href="#" class="corp-banner light">
+                <h3>サステナビリティ</h3>
+                <p>Sustainability</p>
+            </a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-inner">
+            <div class="footer-info">
+                <div class="footer-logo">〇〇不動産株式会社</div>
+                <p>〒000-0000<br>東京都〇〇区〇〇 1-2-3<br>TEL: 03-0000-0000</p>
+            </div>
+            <div class="footer-links">
+                <ul>
+                    <li><a href="#">トップページ</a></li>
+                    <li><a href="#">ニュース一覧</a></li>
+                    <li><a href="#">事業内容</a></li>
+                </ul>
+                <ul>
+                    <li><a href="#">企業情報</a></li>
+                    <li><a href="#">サステナビリティ</a></li>
+                    <li><a href="#">採用情報</a></li>
+                </ul>
+                <ul>
+                    <li><a href="#">プライバシーポリシー</a></li>
+                    <li><a href="#">サイトマップ</a></li>
+                    <li><a href="#">お問い合わせ</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            &copy; 2026 〇〇 Real Estate Co., Ltd. All Rights Reserved.
+        </div>
+    </footer>
+
+</body>
+</html>
