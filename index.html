@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>COMPASS | 不動産エージェントという新しい働き方</title>
+    <style>
+        /* =========================================
+           ベース設定
+        ========================================= */
+        :root {
+            --primary: #1A365D; /* 信頼感のある深いネイビー */
+            --accent: #D69E2E;  /* 羅針盤をイメージしたゴールド */
+            --bg-light: #F7FAFC; /* 清潔感のある薄いグレー */
+            --text-main: #2D3748;
+        }
+
+        body {
+            font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', Meiryo, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: var(--text-main);
+            line-height: 1.8;
+            letter-spacing: 0.03em;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        section {
+            padding: 80px 0;
+        }
+
+        .bg-gray {
+            background-color: var(--bg-light);
+        }
+
+        h2.section-title {
+            text-align: center;
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 50px;
+            position: relative;
+        }
+
+        h2.section-title::after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 3px;
+            background: var(--accent);
+            margin: 15px auto 0;
+        }
+
+        /* =========================================
+           ヒーローセクション（ファーストビュー）
+        ========================================= */
+        .hero {
+            background: linear-gradient(135deg, #1A365D 0%, #2B6CB0 100%);
+            color: white;
+            text-align: center;
+            padding: 120px 20px;
+        }
+
+        .hero h1 {
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+            line-height: 1.4;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        /* =========================================
+           コンセプト（想い）
+        ========================================= */
+        .concept-box {
+            background: white;
+            padding: 50px;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+            text-align: center;
+        }
+
+        .concept-box h3 {
+            color: var(--accent);
+            font-size: 1.5rem;
+            margin-top: 0;
+        }
+
+        /* =========================================
+           特徴・サポート内容（3つの柱）
+        ========================================= */
+        .features-grid {
+            display: flex;
+            gap: 30px;
+        }
+
+        .feature-card {
+            flex: 1;
+            background: white;
+            padding: 40px 30px;
+            border-radius: 10px;
+            border-top: 5px solid var(--accent);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            text-align: center;
+        }
+        
