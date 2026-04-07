@@ -3,315 +3,281 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>上質な住まい探しを、専属エージェントと共に | Premium Estate</title>
+    <title>〇〇不動産株式会社 | 公式コーポレートサイト</title>
     <style>
         /* =========================================
-           要件1 & 4: プレーンでおしゃれ、落ち着いた配色
-           大手不動産のような品格（チャコールグレー×シャンパンゴールド）
+           ベース設定（大手の品格を出す明朝体と配色）
         ========================================= */
         :root {
-            --color-text-main: #2C2E33;   /* 重厚感のあるチャコールグレー */
-            --color-text-light: #666666;  /* 柔らかいグレー */
-            --color-bg-white: #FFFFFF;
-            --color-bg-gray: #F8F8F8;     /* 冷たすぎない上品なライトグレー */
-            --color-accent: #A89B7D;      /* 落ち着いたシャンパンゴールド */
-            --font-serif: "Yu Mincho", "YuMincho", "Hiragino Mincho ProN", serif;
-            --font-sans: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif;
+            --color-primary: #1A202C; /* 重厚感のあるダークネイビー */
+            --color-accent: #A89B7D;  /* 信頼と高級感のシャンパンゴールド */
+            --color-bg-gray: #F7F7F7; /* セクション区切り用の薄いグレー */
+            --color-text: #333333;
+            --color-border: #E2E8F0;
         }
 
         body {
-            font-family: var(--font-sans);
-            color: var(--color-text-main);
-            background-color: var(--color-bg-white);
-            line-height: 2;
-            letter-spacing: 0.05em;
+            font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif;
+            color: var(--color-text);
             margin: 0;
             padding: 0;
-            font-weight: 300;
+            line-height: 1.6;
         }
 
-        /* 見出しは明朝体で品格を演出 */
-        h1, h2, h3 {
-            font-family: var(--font-serif);
+        h1, h2, h3, .serif {
+            font-family: "Yu Mincho", "YuMincho", "Hiragino Mincho ProN", serif;
             font-weight: normal;
         }
 
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: opacity 0.3s;
+        }
+
+        a:hover {
+            opacity: 0.7;
+        }
+
         .container {
-            max-width: 1000px;
+            max-width: 1100px;
             margin: 0 auto;
-            padding: 0 5%;
+            padding: 0 20px;
         }
 
         section {
-            padding: 120px 0;
+            padding: 80px 0;
         }
 
-        .bg-gray {
-            background-color: var(--color-bg-gray);
+        /* セクション見出しの共通スタイル */
+        .sec-title {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 50px;
+            letter-spacing: 0.1em;
+            color: var(--color-primary);
+        }
+        .sec-title span {
+            display: block;
+            font-family: sans-serif;
+            font-size: 0.9rem;
+            color: var(--color-accent);
+            margin-bottom: 10px;
+            letter-spacing: 0.15em;
         }
 
         /* =========================================
-           ヒーローセクション（余白とタイポグラフィの美しさ）
+           ヘッダー（ナビゲーション）
+        ========================================= */
+        header {
+            background-color: #fff;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 80px;
+            padding: 0 40px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--color-primary);
+            letter-spacing: 0.1em;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            font-size: 0.95rem;
+            font-weight: bold;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links { display: none; /* スマホでは一旦非表示（ハンバーガーメニュー等を入れる想定） */ }
+            .header-inner { padding: 0 20px; }
+        }
+
+        /* =========================================
+           ヒーローエリア（メインビジュアル）
         ========================================= */
         .hero {
-            height: 80vh;
+            height: 70vh;
+            background-color: #E2E8F0; /* 画像が入るまでのダミー色 */
+            /* 実際の画像を入れる場合は下のコメントアウトを外してURLを変更 */
+            /* background: url('hero-image.jpg') center/cover no-repeat; */
             display: flex;
             align-items: center;
             justify-content: center;
+            position: relative;
+        }
+
+        .hero-text {
             text-align: center;
-            background: linear-gradient(rgba(255,255,255,0.9), rgba(255,255,255,0.9)), url('dummy-bg.jpg') center/cover;
-            border-bottom: 1px solid #EBEBEB;
+            color: var(--color-primary); /* 画像が暗い場合は #fff に変更 */
+            background: rgba(255,255,255,0.8);
+            padding: 40px 60px;
         }
 
-        .hero h1 {
-            font-size: 2.8rem;
-            line-height: 1.5;
-            letter-spacing: 0.1em;
-            margin-bottom: 30px;
-            color: var(--color-text-main);
+        .hero-text h1 {
+            font-size: 2.5rem;
+            margin: 0 0 15px 0;
+            letter-spacing: 0.15em;
         }
 
-        .hero p {
+        .hero-text p {
             font-size: 1.1rem;
-            color: var(--color-text-light);
-            letter-spacing: 0.08em;
+            margin: 0;
+            letter-spacing: 0.1em;
         }
 
-        /* セクション見出し */
-        .section-header {
+        /* =========================================
+           ニュース（News / Topics）
+        ========================================= */
+        .news-list {
+            border-top: 1px solid var(--color-border);
+        }
+
+        .news-item {
+            display: flex;
+            gap: 20px;
+            padding: 20px 10px;
+            border-bottom: 1px solid var(--color-border);
+            align-items: center;
+        }
+
+        .news-date {
+            font-size: 0.9rem;
+            color: #666;
+            width: 100px;
+            flex-shrink: 0;
+        }
+
+        .news-category {
+            font-size: 0.8rem;
+            background-color: var(--color-primary);
+            color: #fff;
+            padding: 4px 12px;
+            border-radius: 2px;
+            width: 80px;
             text-align: center;
-            margin-bottom: 80px;
+            flex-shrink: 0;
         }
 
-        .section-header h2 {
-            font-size: 2rem;
+        .news-title {
+            flex: 1;
+            font-size: 1rem;
+        }
+
+        @media (max-width: 768px) {
+            .news-item {
+                flex-wrap: wrap;
+                gap: 10px;
+            }
+            .news-title { width: 100%; }
+        }
+
+        /* =========================================
+           事業内容（Business - グリッドレイアウト）
+        ========================================= */
+        .business-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .biz-card {
+            background-color: #fff;
+            border: 1px solid var(--color-border);
+            transition: box-shadow 0.3s;
+            display: block;
+        }
+
+        .biz-card:hover {
+            box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+        }
+
+        .biz-img {
+            height: 200px;
+            background-color: #E2E8F0; /* 画像のダミー */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #A0AEC0;
+        }
+
+        .biz-text {
+            padding: 25px;
+        }
+
+        .biz-text h3 {
+            font-size: 1.3rem;
+            margin: 0 0 10px 0;
+            color: var(--color-primary);
+            border-bottom: 1px solid var(--color-accent);
+            padding-bottom: 10px;
+        }
+
+        .biz-text p {
+            font-size: 0.95rem;
+            color: #555;
+            margin: 0;
+        }
+
+        /* =========================================
+           企業情報（Corporate / Sustainability）
+        ========================================= */
+        .corp-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+
+        .corp-banner {
+            height: 250px;
+            background-color: var(--color-primary);
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 20px;
+            transition: opacity 0.3s;
+        }
+
+        .corp-banner.light {
+            background-color: var(--color-accent);
+        }
+
+        .corp-banner h3 {
+            font-size: 1.8rem;
             margin: 0 0 10px 0;
             letter-spacing: 0.1em;
         }
 
-        .section-header span {
-            font-size: 0.9rem;
-            color: var(--color-accent);
-            letter-spacing: 0.2em;
-            text-transform: uppercase;
-        }
-
-        /* =========================================
-           要件3: メリット・デメリット（洗練されたレイアウト）
-        ========================================= */
-        .pros-cons-grid {
-            display: flex;
-            flex-direction: column;
-            gap: 80px;
-        }
-
-        .card {
-            display: flex;
-            gap: 60px;
-            align-items: center;
-        }
-
-        .card:nth-child(even) {
-            flex-direction: row-reverse;
-        }
-
-        .card-text {
-            flex: 1;
-        }
-
-        .card-tag {
-            display: inline-block;
-            font-family: var(--font-serif);
-            font-size: 1.1rem;
-            color: var(--color-accent);
-            margin-bottom: 15px;
-            border-bottom: 1px solid var(--color-accent);
-            padding-bottom: 5px;
-        }
-
-        .card h3 {
-            font-size: 1.6rem;
-            margin: 0 0 20px 0;
-            line-height: 1.4;
-        }
-
-        .card p {
-            color: var(--color-text-light);
-            font-size: 1rem;
-        }
-
-        /* イラスト挿入枠（プレーンなサイトに馴染むシンプルな枠） */
-        .illustration-box {
-            width: 400px;
-            height: 280px;
-            background-color: var(--color-bg-white);
-            border: 1px solid #E5E5E5;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #CCCCCC;
-            font-size: 0.9rem;
-            flex-shrink: 0;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.02);
-        }
-
         @media (max-width: 768px) {
-            .card, .card:nth-child(even) {
-                flex-direction: column;
-                gap: 30px;
-            }
-            .illustration-box {
-                width: 100%;
-                height: 240px;
-            }
-            .hero h1 {
-                font-size: 2rem;
-            }
+            .corp-grid { grid-template-columns: 1fr; }
         }
 
         /* =========================================
-           エージェント紹介（重厚感と信頼感）
+           フッター
         ========================================= */
-        .agent-profile {
+        footer {
+            background-color: var(--color-primary);
+            color: #fff;
+            padding: 60px 20px 20px;
+        }
+
+        .footer-inner {
+            max-width: 1100px;
+            margin: 0 auto;
             display: flex;
-            gap: 60px;
-            align-items: center;
-            background-color: var(--color-bg-white);
-            padding: 60px;
-            box-shadow: 0 15px 40px rgba(0,0,0,0.03);
-        }
-
-        .agent-img {
-            width: 200px;
-            height: 240px;
-            background-color: var(--color-bg-gray);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #CCCCCC;
-            flex-shrink: 0;
-        }
-
-        .agent-info .role {
-            color: var(--color-accent);
-            font-size: 0.9rem;
-            letter-spacing: 0.1em;
-            margin-bottom: 10px;
-            display: block;
-        }
-
-        .agent-info h3 {
-            font-size: 1.8rem;
-            margin: 0 0 20px 0;
-            border-bottom: 1px solid #E5E5E5;
-            padding-bottom: 15px;
-        }
-
-        @media (max-width: 768px) {
-            .agent-profile {
-                flex-direction: column;
-                padding: 30px;
-                text-align: center;
-            }
-        }
-
-        /* =========================================
-           CTA（行動喚起）ボタン
-        ========================================= */
-        .cta-section {
-            text-align: center;
-            padding: 80px 0 120px;
-        }
-
-        .btn {
-            display: inline-block;
-            background-color: var(--color-text-main);
-            color: var(--color-bg-white);
-            text-decoration: none;
-            padding: 20px 60px;
-            font-size: 1.1rem;
-            letter-spacing: 0.1em;
-            transition: all 0.3s ease;
-            border: 1px solid var(--color-text-main);
-        }
-
-        .btn:hover {
-            background-color: var(--color-bg-white);
-            color: var(--color-text-main);
-        }
-    </style>
-</head>
-<body>
-
-    <header class="hero">
-        <div class="container">
-            <h1>価値ある住まいを、<br>揺るぎない安心とともに。</h1>
-            <p>人生における最も重要な決断に、一切の妥協は必要ありません。<br>
-            企業の論理に縛られない「あなただけの専属エージェント」が、<br>
-            透明性の高い情報と確かな審美眼で、理想の未来をエスコートいたします。</p>
-        </div>
-    </header>
-
-    <section class="bg-gray">
-        <div class="container">
-            <div class="section-header">
-                <span>Features</span>
-                <h2>専属エージェントという選択</h2>
-            </div>
-
-            <div class="pros-cons-grid">
-                <div class="card">
-                    <div class="illustration-box">
-                        [洗練された線画イラスト: 建築模型や設計図を見る様子]
-                    </div>
-                    <div class="card-text">
-                        <span class="card-tag">Merit</span>
-                        <h3>「真の価値」を見極める、中立な審美眼</h3>
-                        <p>自社物件の販売ノルマを持たないため、市場に存在するすべての物件から、お客様にとって最良の選択肢のみをご提案します。建物の見えない瑕疵リスクや、数十年後の資産価値の推移まで。プロフェッショナルとしての客観的なデータに基づき、「見送るべき物件」ははっきりとお伝えいたします。</p>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <div class="illustration-box">
-                        [洗練された線画イラスト: 契約書や握手の様子]
-                    </div>
-                    <div class="card-text">
-                        <span class="card-tag">Demerit</span>
-                        <h3>専属契約という「責任」について</h3>
-                        <p>私たちはお客様に100%コミットするため、原則として「専属専任媒介契約」を結ばせていただきます。他社との並行検討ができなくなるという制限はございますが、それは情報漏洩を防ぎ、価格交渉においてお客様の利益を最大化するための強力な防具となります。規定の仲介手数料は発生しますが、それ以上の「購入価格の最適化」と「安心」をお約束します。</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section>
-        <div class="container">
-            <div class="section-header">
-                <span>Agent Profile</span>
-                <h2>担当エージェント</h2>
-            </div>
-
-            <div class="agent-profile">
-                <div class="agent-img">
-                    [上質なポートレート写真]
-                </div>
-                <div class="agent-info">
-                    <span class="role">シニア・リアルエステート・エージェント / 宅地建物取引士</span>
-                    <h3>田中 誠</h3>
-                    <p>国内大手総合不動産会社にて15年間、都心部のハイエンド物件を中心に数百件の売買に携わる。業界の構造的な不透明さに課題を感じ、「徹底した顧客第一主義」を貫くために独立。<br>
-                    単なる物件紹介にとどまらず、税務・法務の専門家チームと連携し、生涯にわたる資産形成のパートナーとして多くのお客様から厚い信頼を寄せられています。</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <div class="cta-section bg-gray">
-        <div class="container">
-            <h2 style="margin-bottom: 40px;">理想の住まい探しを、ここから。</h2>
-            <a href="#" class="btn">プライベート相談を予約する</a>
-        </div>
-    </div>
-
-</body>
-</html>
+            justify-content: space-between;
+            border-bottom: 1px solid rgba(255,255,255,0.2
